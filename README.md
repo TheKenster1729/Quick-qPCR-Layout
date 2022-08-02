@@ -1,5 +1,5 @@
 # Quick qPCR Layout
-Quickly generate plate layouts for qPCR.
+Quickly generate plate layouts for qPCR and perform data analysis.
 
 The program reads in data from the 'params.py' file, the only file the user will (hopefully) have to edit, and uses it to generate a representation of a qPCR plate. This representation is then exported as a .csv to be used as the plate template for a ThermoFischer QuantStudio 5 compatible qPCR machine. The output data from the machine can then be loaded in to the program for further analysis.
 
