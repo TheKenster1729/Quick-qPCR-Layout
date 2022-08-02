@@ -63,14 +63,14 @@ def plot_standard_curve(plate, extra_info = False):
         model_fitted = model.fit(log_copies_for_reg.to_numpy().reshape(-1, 1), ct_vals_for_reg.to_numpy().reshape(-1, 1))
         plt.plot(log_copies_for_reg, model_fitted.predict(log_copies_for_reg.to_numpy().reshape(-1, 1)))
 
-        score = model_fitted.score(log_copies_for_reg.to_numpy().reshape(-1, 1), ct_vals_for_reg.to_numpy().reshape(-1, 1))*100
+        score = model_fitted.score(log_copies_for_reg.to_numpy().reshape(-1, 1), ct_vals_for_reg.to_numpy().reshape(-1, 1))
         efficiency = abs(model_fitted.coef_[0][0])/3.33*100
 
         if extra_info:
             # TODO: add significance information (confidence interval and so on)
             pass
 
-        plt.title('Standard Curve for Sample %s \n Effiency = %3f,  R^2 = %3f' % (family, efficiency, score))
+        plt.title('Standard Curve for Sample %s \n Effiency = %.0f%%,  R^2 = %.3f' % (family, efficiency, score))
         plt.xlabel('Log Copies')
         plt.ylabel('Ct')
         plt.show()
